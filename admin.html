@@ -332,16 +332,21 @@
             margin-bottom: 6px;
             color: #334155;
         }
-        .form-group input, .form-group select {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 9px 12px;
             border: 1px solid #cbd5e1;
             border-radius: 6px;
             font-size: 14px;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            resize: vertical;
+            line-height: 1.5;
         }
         .preview-img-box {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border: 2px dashed #cbd5e1;
             border-radius: 8px;
             overflow: hidden;
@@ -355,6 +360,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        .prod-media-desc-row {
+            display: flex;
+            gap: 28px;
+            margin-top: 18px;
+            align-items: flex-start;
+            flex-wrap: wrap;
         }
         .info-grid {
             display: grid;
@@ -557,7 +569,7 @@
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">Doanh thu thành công</div>
-                        <div class="kpi-value">7.220.000 đ</div>
+                        <div class="kpi-value">7,220,000 đ</div>
                         <div class="kpi-sub">Tổng đơn đã giao thành công</div>
                     </div>
                 </div>
@@ -587,7 +599,7 @@
                                 <td><strong>DH-24004</strong></td>
                                 <td>Nguyễn Minh Anh</td>
                                 <td>30/10/2026</td>
-                                <td>3.440.000 đ</td>
+                                <td>3,440,000 đ</td>
                                 <td><span class="badge badge-green">Đã giao thành công</span></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24004')">Chi tiết</a></td>
                             </tr>
@@ -595,7 +607,7 @@
                                 <td><strong>DH-24003</strong></td>
                                 <td>Lê Hoàng Yến</td>
                                 <td>29/10/2026</td>
-                                <td>3.290.000 đ</td>
+                                <td>3,290,000 đ</td>
                                 <td><span class="badge badge-yellow">Chưa xác nhận</span></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24003')">Chi tiết</a></td>
                             </tr>
@@ -603,7 +615,7 @@
                                 <td><strong>DH-24002</strong></td>
                                 <td>Trần Gia Bảo</td>
                                 <td>27/10/2026</td>
-                                <td>2.450.000 đ</td>
+                                <td>2,450,000 đ</td>
                                 <td><span class="badge badge-blue">Đã xác nhận</span></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24002')">Chi tiết</a></td>
                             </tr>
@@ -611,7 +623,7 @@
                                 <td><strong>DH-24001</strong></td>
                                 <td>Nguyễn Minh Anh</td>
                                 <td>19/10/2026</td>
-                                <td>3.780.000 đ</td>
+                                <td>3,780,000 đ</td>
                                 <td><span class="badge badge-green">Đã giao thành công</span></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24001')">Chi tiết</a></td>
                             </tr>
@@ -642,21 +654,21 @@
                             <tr>
                                 <td><div class="prod-cell"><img src="images/sneaker-1.jpg"><strong>Giày Thể Thao Nam Biti's Nâu Phối Đen</strong></div></td>
                                 <td>Giày thể thao</td>
-                                <td>750.000 đ</td>
+                                <td>750,000 đ</td>
                                 <td>18</td>
                                 <td><span class="badge badge-green">Đang bán</span></td>
                             </tr>
                             <tr>
                                 <td><div class="prod-cell"><img src="images/sneaker-2.jpg"><strong>Giày Adidas Samba OG Mercedes Đen</strong></div></td>
                                 <td>Giày thể thao</td>
-                                <td>2.800.000 đ</td>
+                                <td>2,800,000 đ</td>
                                 <td>12</td>
                                 <td><span class="badge badge-green">Đang bán</span></td>
                             </tr>
                             <tr>
                                 <td><div class="prod-cell"><img src="images/sandal-1.jpg"><strong>Sandal Shondo Dây Mảnh Xám Ghi</strong></div></td>
                                 <td>Sandal</td>
-                                <td>290.000 đ</td>
+                                <td>290,000 đ</td>
                                 <td>0</td>
                                 <td><span class="badge badge-green">Đang bán</span></td>
                             </tr>
@@ -666,7 +678,7 @@
             </div>
 
 
-            <!-- 2. QUẢN LÝ SẢN PHẨM (14 SẢN PHẨM + PHÂN TRANG) -->
+            <!-- 2. QUẢN LÝ SẢN PHẨM (14 SẢN PHẨM + TÌM KIẾM TĨNH + PHÂN TRANG) -->
             <div id="sec-products" style="display: none;">
                 
                 <!-- Màn hình Danh sách 14 sản phẩm -->
@@ -677,6 +689,17 @@
                             <p>Đồng bộ đầy đủ 9 mẫu Giày thể thao và 5 mẫu Sandal từ cửa hàng</p>
                         </div>
                         <button type="button" class="btn btn-orange" onclick="openProductAddScreen()">+ Thêm sản phẩm</button>
+                    </div>
+
+                    <!-- Thanh tìm kiếm sản phẩm trong Admin (Tĩnh, bấm vào giữ nguyên danh sách cũ) -->
+                    <div style="background: #f8fafc; padding: 14px; border-radius: 8px; margin-bottom: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                        <input type="text" id="admin-prod-search" placeholder="Nhập tên sản phẩm cần tìm..." style="flex: 1; min-width: 220px; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;" onkeydown="if(event.key==='Enter') reloadSectionTable('product-table-box')">
+                        <select style="padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff;">
+                            <option value="all">Tất cả phân loại</option>
+                            <option value="sneaker">Giày thể thao</option>
+                            <option value="sandal">Sandal</option>
+                        </select>
+                        <button type="button" class="btn btn-orange" onclick="reloadSectionTable('product-table-box')">Tìm kiếm</button>
                     </div>
 
                     <div id="product-table-box">
@@ -694,140 +717,140 @@
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-1.jpg"><strong>Giày Thể Thao Nam Biti's Nâu Phối Đen</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>750.000đ</td>
+                                    <td>750,000đ</td>
                                     <td><span class="badge badge-green">Đã bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Thể Thao Nam Biti's Nâu Phối Đen', 'Giày thể thao', '750.000đ', 'images/sneaker-1.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Thể Thao Nam Biti\'s Nâu Phối Đen', 'Giày thể thao', '750,000', 'images/sneaker-1.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-2.jpg"><strong>Giày Adidas Samba OG Mercedes Đen</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>2.800.000đ</td>
+                                    <td>2,800,000đ</td>
                                     <td><span class="badge badge-green">Đã bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Adidas Samba OG Mercedes Đen', 'Giày thể thao', '2.800.000đ', 'images/sneaker-2.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Adidas Samba OG Mercedes Đen', 'Giày thể thao', '2,800,000', 'images/sneaker-2.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-3.jpg"><strong>Giày Đá Bóng F50 Turf Xanh Lá</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>1.950.000đ</td>
+                                    <td>1,950,000đ</td>
                                     <td><span class="badge badge-green">Đã bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Đá Bóng F50 Turf Xanh Lá', 'Giày thể thao', '1.950.000đ', 'images/sneaker-3.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Đá Bóng F50 Turf Xanh Lá', 'Giày thể thao', '1,950,000', 'images/sneaker-3.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-4.jpg"><strong>Giày Chạy Bộ Tensaur Trắng Quai Dán</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>920.000đ</td>
+                                    <td>920,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Chạy Bộ Tensaur Trắng Quai Dán', 'Giày thể thao', '920.000đ', 'images/sneaker-4.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Chạy Bộ Tensaur Trắng Quai Dán', 'Giày thể thao', '920,000', 'images/sneaker-4.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-5.jpg"><strong>Giày Đá Bóng Cỏ Thật Predator Elite Đỏ</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>3.200.000đ</td>
+                                    <td>3,200,000đ</td>
                                     <td><span class="badge badge-green">Đã bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Đá Bóng Cỏ Thật Predator Elite Đỏ', 'Giày thể thao', '3.200.000đ', 'images/sneaker-5.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Đá Bóng Cỏ Thật Predator Elite Đỏ', 'Giày thể thao', '3,200,000', 'images/sneaker-5.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-6.jpg"><strong>Giày Adidas Handball Spezial Đen 3 Sọc Màu</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>2.450.000đ</td>
+                                    <td>2,450,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Adidas Handball Spezial Đen 3 Sọc Màu', 'Giày thể thao', '2.450.000đ', 'images/sneaker-6.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Adidas Handball Spezial Đen 3 Sọc Màu', 'Giày thể thao', '2,450,000', 'images/sneaker-6.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-7.jpg"><strong>Giày Adidas Samba Liverpool Trắng Sọc Đỏ</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>2.900.000đ</td>
+                                    <td>2,900,000đ</td>
                                     <td><span class="badge badge-green">Đã bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Adidas Samba Liverpool Trắng Sọc Đỏ', 'Giày thể thao', '2.900.000đ', 'images/sneaker-7.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Adidas Samba Liverpool Trắng Sọc Đỏ', 'Giày thể thao', '2,900,000', 'images/sneaker-7.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-8.jpg"><strong>Giày Sneaker Samba Trắng Sọc Đen Cổ Điển</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>2.650.000đ</td>
+                                    <td>2,650,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Sneaker Samba Trắng Sọc Đen Cổ Điển', 'Giày thể thao', '2.650.000đ', 'images/sneaker-8.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Sneaker Samba Trắng Sọc Đen Cổ Điển', 'Giày thể thao', '2,650,000', 'images/sneaker-8.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sneaker-9.jpg"><strong>Giày Thể Thao Streetwear Trắng Tia Sét Đỏ</strong></div></td>
                                     <td>Giày thể thao</td>
-                                    <td>880.000đ</td>
+                                    <td>880,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Thể Thao Streetwear Trắng Tia Sét Đỏ', 'Giày thể thao', '880.000đ', 'images/sneaker-9.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Giày Thể Thao Streetwear Trắng Tia Sét Đỏ', 'Giày thể thao', '880,000', 'images/sneaker-9.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sandal-1.jpg"><strong>Sandal Shondo Dây Mảnh Xám Ghi</strong></div></td>
                                     <td>Sandal</td>
-                                    <td>290.000đ</td>
+                                    <td>290,000đ</td>
                                     <td><span class="badge badge-green">Đã bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Shondo Dây Mảnh Xám Ghi', 'Sandal', '290.000đ', 'images/sandal-1.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Shondo Dây Mảnh Xám Ghi', 'Sandal', '290,000', 'images/sandal-1.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sandal-2.jpg"><strong>Sandal Thể Thao Phối Màu Kem Đen</strong></div></td>
                                     <td>Sandal</td>
-                                    <td>340.000đ</td>
+                                    <td>340,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Thể Thao Phối Màu Kem Đen', 'Sandal', '340.000đ', 'images/sandal-2.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Thể Thao Phối Màu Kem Đen', 'Sandal', '340,000', 'images/sandal-2.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sandal-3.jpg"><strong>Sandal Shondo Quai Chéo Xám Tro</strong></div></td>
                                     <td>Sandal</td>
-                                    <td>320.000đ</td>
+                                    <td>320,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Shondo Quai Chéo Xám Tro', 'Sandal', '320.000đ', 'images/sandal-3.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Shondo Quai Chéo Xám Tro', 'Sandal', '320,000', 'images/sandal-3.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sandal-4.jpg"><strong>Sandal Shondo Lite Xanh Phối Trắng</strong></div></td>
                                     <td>Sandal</td>
-                                    <td>310.000đ</td>
+                                    <td>310,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Shondo Lite Xanh Phối Trắng', 'Sandal', '310.000đ', 'images/sandal-4.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Shondo Lite Xanh Phối Trắng', 'Sandal', '310,000', 'images/sandal-4.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><div class="prod-cell"><img src="images/sandal-5.jpg"><strong>Sandal Quai Dù Bền Chắc Đen Toàn Bộ</strong></div></td>
                                     <td>Sandal</td>
-                                    <td>350.000đ</td>
+                                    <td>350,000đ</td>
                                     <td><span class="badge badge-yellow">Chưa bán ra</span></td>
                                     <td>
-                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Quai Dù Bền Chắc Đen Toàn Bộ', 'Sandal', '350.000đ', 'images/sandal-5.jpg')">Sửa</button>
+                                        <button type="button" class="btn btn-blue" onclick="openProductEditScreen('Sandal Quai Dù Bền Chắc Đen Toàn Bộ', 'Sandal', '350,000', 'images/sandal-5.jpg')">Sửa</button>
                                         <button type="button" class="btn btn-red" onclick="deleteProductMock()">Xóa</button>
                                     </td>
                                 </tr>
@@ -850,7 +873,7 @@
                     </div>
                 </div>
 
-                <!-- Màn hình Thêm / Sửa sản phẩm (Bấm Lưu quay lại danh sách cũ không sửa gì) -->
+                <!-- Màn hình Thêm / Sửa sản phẩm (Có format tiền có dấu phẩy + ô Mô tả chi tiết bên phải) -->
                 <div id="product-form-view" class="card-box" style="display: none;">
                     <div class="card-header-row">
                         <h3 id="prod-screen-title">Sửa thông tin sản phẩm</h3>
@@ -860,7 +883,7 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Tên sản phẩm:</label>
-                            <input type="text" id="edit-p-name" value="Giày Thể Thao Nam Biti's Nâu Phối Đen">
+                            <input type="text" id="edit-p-name" placeholder="Nhập tên sản phẩm..." value="Giày Thể Thao Nam Biti's Nâu Phối Đen">
                         </div>
                         <div class="form-group">
                             <label>Phân loại sản phẩm:</label>
@@ -871,15 +894,23 @@
                         </div>
                         <div class="form-group">
                             <label>Giá bán (VNĐ):</label>
-                            <input type="text" id="edit-p-price" value="750.000đ">
+                            <input type="text" id="edit-p-price" placeholder="Ví dụ: 750,000" value="750,000" oninput="formatCurrencyInput(this)">
                         </div>
                     </div>
 
-                    <div style="margin-top: 20px;">
-                        <label style="font-size: 13px; font-weight: 600;">Hình ảnh hiển thị:</label>
-                        <input type="file" accept="image/*" onchange="previewImgFile(event)" style="display: block; margin-top: 6px;">
-                        <div class="preview-img-box">
-                            <img id="edit-p-img" src="images/sneaker-1.jpg" alt="Preview">
+                    <!-- Bố cục 2 cột: Bên trái chọn hình ảnh, bên phải nhập mô tả chuẩn format -->
+                    <div class="prod-media-desc-row">
+                        <div style="min-width: 240px;">
+                            <label style="font-size: 13px; font-weight: 600; color: #334155;">Hình ảnh hiển thị:</label>
+                            <input type="file" accept="image/*" onchange="previewImgFile(event)" style="display: block; margin-top: 8px; font-size: 13px;">
+                            <div class="preview-img-box">
+                                <img id="edit-p-img" src="images/sneaker-1.jpg" alt="Preview">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="flex: 1; min-width: 300px; margin-bottom: 0;">
+                            <label>Mô tả chi tiết sản phẩm:</label>
+                            <textarea id="edit-p-desc" rows="6" placeholder="Nhập mô tả chi tiết sản phẩm...">Mẫu giày chính hãng thiết kế phong cách thể thao năng động, chất liệu êm ái thoáng khí, form chuẩn ôm chân và đế bám chống trơn trượt tối đa. Phù hợp cho vận động hàng ngày, đi chơi và tập luyện thể thao.</textarea>
                         </div>
                     </div>
 
@@ -952,7 +983,7 @@
                                 <td>Nguyễn Minh Anh</td>
                                 <td>Số 12 An Dương Vương, Q.5</td>
                                 <td>30/10/2026</td>
-                                <td>3.440.000 đ</td>
+                                <td>3,440,000 đ</td>
                                 <td><span class="badge badge-green">Đã giao thành công</span></td>
                                 <td><span style="font-size: 12px; color: #94a3b8;">Hoàn tất</span></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24004')">Xem chi tiết</a></td>
@@ -962,7 +993,7 @@
                                 <td>Lê Hoàng Yến</td>
                                 <td>Số 88 Lê Lợi, Q.1</td>
                                 <td>29/10/2026</td>
-                                <td>3.290.000 đ</td>
+                                <td>3,290,000 đ</td>
                                 <td><span class="badge badge-yellow">Chưa xác nhận</span></td>
                                 <td><button type="button" class="btn btn-blue" onclick="reloadSectionTable('order-table-box')">Xác nhận &rarr;</button></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24003')">Xem chi tiết</a></td>
@@ -972,7 +1003,7 @@
                                 <td>Trần Gia Bảo</td>
                                 <td>Số 24 Võ Văn Ngân, Thủ Đức</td>
                                 <td>27/10/2026</td>
-                                <td>2.450.000 đ</td>
+                                <td>2,450,000 đ</td>
                                 <td><span class="badge badge-blue">Đã xác nhận</span></td>
                                 <td><button type="button" class="btn" style="background: #16a34a; color: #fff; border: none;" onclick="reloadSectionTable('order-table-box')">Đã giao &rarr;</button></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24002')">Xem chi tiết</a></td>
@@ -982,7 +1013,7 @@
                                 <td>Nguyễn Minh Anh</td>
                                 <td>Số 12 An Dương Vương, Q.5</td>
                                 <td>19/10/2026</td>
-                                <td>3.780.000 đ</td>
+                                <td>3,780,000 đ</td>
                                 <td><span class="badge badge-green">Đã giao thành công</span></td>
                                 <td><span style="font-size: 12px; color: #94a3b8;">Hoàn tất</span></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24001')">Xem chi tiết</a></td>
@@ -1119,31 +1150,31 @@
                                     <a class="link-detail" onclick="openOrderDetailScreen('DH-24004')">DH-24004</a>, 
                                     <a class="link-detail" onclick="openOrderDetailScreen('DH-24001')">DH-24001</a>
                                 </td>
-                                <td style="color: #e84118; font-weight: bold;">7.220.000 đ</td>
+                                <td style="color: #e84118; font-weight: bold;">7,220,000 đ</td>
                             </tr>
                             <tr>
                                 <td><strong>#2</strong></td>
                                 <td><strong>Lê Hoàng Yến</strong></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24003')">DH-24003</a></td>
-                                <td style="color: #e84118; font-weight: bold;">3.290.000 đ</td>
+                                <td style="color: #e84118; font-weight: bold;">3,290,000 đ</td>
                             </tr>
                             <tr>
                                 <td><strong>#3</strong></td>
                                 <td><strong>Trần Gia Bảo</strong></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-24002')">DH-24002</a></td>
-                                <td style="color: #e84118; font-weight: bold;">2.450.000 đ</td>
+                                <td style="color: #e84118; font-weight: bold;">2,450,000 đ</td>
                             </tr>
                             <tr>
                                 <td><strong>#4</strong></td>
                                 <td><strong>Phạm Đình Dũng</strong></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-23998')">DH-23998</a></td>
-                                <td style="color: #e84118; font-weight: bold;">1.950.000 đ</td>
+                                <td style="color: #e84118; font-weight: bold;">1,950,000 đ</td>
                             </tr>
                             <tr>
                                 <td><strong>#5</strong></td>
                                 <td><strong>Vũ Hoàng Anh</strong></td>
                                 <td><a class="link-detail" onclick="openOrderDetailScreen('DH-23995')">DH-23995</a></td>
-                                <td style="color: #e84118; font-weight: bold;">750.000 đ</td>
+                                <td style="color: #e84118; font-weight: bold;">750,000 đ</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1194,32 +1225,32 @@
                         <tr>
                             <td><div class="prod-cell"><img src="images/sneaker-2.jpg"><strong>Giày Adidas Samba OG Mercedes Đen</strong></div></td>
                             <td>Giày thể thao</td>
-                            <td>2.800.000đ</td>
+                            <td>2,800,000đ</td>
                             <td>1</td>
-                            <td><strong>2.800.000đ</strong></td>
+                            <td><strong>2,800,000đ</strong></td>
                             <td><a class="link-detail" onclick="openProductDetailLikeUser()">Xem chi tiết</a></td>
                         </tr>
                         <tr>
                             <td><div class="prod-cell"><img src="images/sandal-2.jpg"><strong>Sandal Thể Thao Phối Màu Kem Đen</strong></div></td>
                             <td>Sandal</td>
-                            <td>340.000đ</td>
+                            <td>340,000đ</td>
                             <td>1</td>
-                            <td><strong>340.000đ</strong></td>
+                            <td><strong>340,000đ</strong></td>
                             <td><a class="link-detail" onclick="openProductDetailLikeUser()">Xem chi tiết</a></td>
                         </tr>
                         <tr>
                             <td><div class="prod-cell"><img src="images/sandal-1.jpg"><strong>Sandal Shondo Dây Mảnh Xám Ghi</strong></div></td>
                             <td>Sandal</td>
-                            <td>300.000đ</td>
+                            <td>300,000đ</td>
                             <td>1</td>
-                            <td><strong>300.000đ</strong></td>
+                            <td><strong>300,000đ</strong></td>
                             <td><a class="link-detail" onclick="openProductDetailLikeUser()">Xem chi tiết</a></td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div style="text-align: right; margin-top: 20px; font-size: 18px; font-weight: 800; color: #e84118;">
-                    Tổng cộng thanh toán: 3.440.000đ
+                    Tổng cộng thanh toán: 3,440,000đ
                 </div>
             </div>
 
@@ -1235,7 +1266,7 @@
 
                     <div class="user-detail-info">
                         <h2>Giày Thể Thao Nam Biti's Nâu Phối Đen</h2>
-                        <div class="user-detail-price">750.000đ</div>
+                        <div class="user-detail-price">750,000đ</div>
                         <p class="user-detail-desc">
                             Mẫu giày chính hãng thiết kế phong cách thể thao năng động, chất liệu êm ái thoáng khí, form chuẩn ôm chân và đế bám chống trơn trượt tối đa. Phù hợp cho vận động hàng ngày, đi chơi và tập luyện thể thao.
                         </p>
@@ -1308,9 +1339,18 @@
             document.getElementById('product-form-view').style.display = 'none';
         }
 
-        // Bấm nút Xóa: Tạo hiệu ứng chạy lại bảng cũ, không xóa dòng nào
         function deleteProductMock() {
             reloadSectionTable('product-table-box');
+        }
+
+        // Định dạng tiền VNĐ có dấu phẩy tự động khi gõ (VD: 100,000 hoặc 1,000,000)
+        function formatCurrencyInput(inputEl) {
+            let rawDigits = inputEl.value.replace(/\D/g, '');
+            if (rawDigits === '') {
+                inputEl.value = '';
+                return;
+            }
+            inputEl.value = Number(rawDigits).toLocaleString('en-US');
         }
 
         function openProductAddScreen() {
@@ -1319,6 +1359,7 @@
             document.getElementById('edit-p-name').value = "";
             document.getElementById('edit-p-price').value = "";
             document.getElementById('edit-p-img').src = "images/sneaker-1.jpg";
+            document.getElementById('edit-p-desc').value = "Mẫu giày chính hãng thiết kế phong cách thể thao năng động, chất liệu êm ái thoáng khí, form chuẩn ôm chân và đế bám chống trơn trượt tối đa. Phù hợp cho vận động hàng ngày, đi chơi và tập luyện thể thao.";
             
             document.getElementById('product-list-view').style.display = 'none';
             document.getElementById('product-form-view').style.display = 'block';
@@ -1331,6 +1372,7 @@
             document.getElementById('edit-p-cat').value = cat;
             document.getElementById('edit-p-price').value = price;
             document.getElementById('edit-p-img').src = img;
+            document.getElementById('edit-p-desc').value = "Mẫu giày chính hãng thiết kế phong cách thể thao năng động, chất liệu êm ái thoáng khí, form chuẩn ôm chân và đế bám chống trơn trượt tối đa. Phù hợp cho vận động hàng ngày, đi chơi và tập luyện thể thao.";
 
             document.getElementById('product-list-view').style.display = 'none';
             document.getElementById('product-form-view').style.display = 'block';
@@ -1363,7 +1405,7 @@
             document.getElementById('user-form-view').style.display = 'block';
         }
 
-        // Hiệu ứng tải lại màn hình cũ cho Lọc đơn hàng, Thống kê, Xóa sản phẩm
+        // Hiệu ứng tải lại màn hình cũ cho Tìm kiếm, Lọc, Thống kê, Xóa sản phẩm
         function reloadSectionTable(boxId) {
             const box = document.getElementById(boxId);
             if (box) {
@@ -1375,7 +1417,7 @@
             }
         }
 
-        // PHÂN TRANG TRONG MỤC SẢN PHẨM ADMIN (Chỉ nhảy số trang & chạy hiệu ứng tải lại bảng cũ)
+        // PHÂN TRANG TRONG MỤC SẢN PHẨM ADMIN
         let adminCurrentPage = 1;
         const adminTotalPages = 3;
 
@@ -1396,7 +1438,6 @@
                 btnNext.classList.remove('disabled');
             }
 
-            // Chạy hiệu ứng tải lại bảng danh sách sản phẩm như cũ
             reloadSectionTable('product-table-box');
         }
 

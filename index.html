@@ -6,7 +6,7 @@
     <title>Shoe's Store - Shop Giày Thể Thao & Sandal</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS cho màn hình Đăng nhập & Đăng ký tích hợp chung */
+        /* CSS Màn hình Đăng nhập & Đăng ký */
         #screen-auth {
             display: flex;
             align-items: center;
@@ -81,7 +81,7 @@
             cursor: pointer;
         }
 
-        /* CSS Màn hình Chi tiết sản phẩm mặc định */
+        /* CSS Chi tiết sản phẩm */
         .detail-grid {
             display: flex;
             gap: 40px;
@@ -145,11 +145,6 @@
             padding: 25px;
             box-shadow: 0 12px 30px rgba(0,0,0,0.25);
             position: relative;
-            animation: popIn 0.2s ease;
-        }
-        @keyframes popIn {
-            from { transform: scale(0.92); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
         .popup-item-card {
             display: flex;
@@ -168,6 +163,179 @@
             border-radius: 8px;
             background: #fff;
         }
+
+        /* CSS Thẻ Thông tin cá nhân (Profile Card Dropdown) */
+        .profile-dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .btn-profile-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            border: 1px solid #dcdde1;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            color: #2f3640;
+        }
+        .btn-profile-trigger:hover {
+            border-color: #FF5200;
+            background: #fffaf7;
+        }
+        .profile-mini-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #FF5200;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-card-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 46px;
+            width: 300px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            border: 1px solid #e2e8f0;
+            z-index: 1500;
+            overflow: hidden;
+        }
+        .profile-card-top {
+            background: #f1f5f9;
+            padding: 20px 16px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .profile-big-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #FF5200;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px auto;
+        }
+        .profile-card-top h4 {
+            font-size: 17px;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+        .profile-card-top p {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .btn-profile-edit-pill {
+            background: #1a73e8;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .profile-menu-list {
+            list-style: none;
+            padding: 8px 0;
+        }
+        .profile-menu-list li {
+            padding: 11px 20px;
+            font-size: 14px;
+            color: #334155;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .profile-menu-list li:hover {
+            background: #f8fafc;
+            color: #FF5200;
+        }
+        .profile-menu-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 6px 0;
+        }
+
+        /* CSS ĐỒNG BỘ LỊCH SỬ ĐƠN HÀNG GIỐNG ADMIN */
+        .order-status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .status-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .history-prod-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .history-prod-table th {
+            background: #f8fafc;
+            color: #64748b;
+            font-size: 11px;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .history-prod-table td {
+            padding: 10px 12px;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+        .history-prod-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .history-prod-cell img {
+            width: 44px;
+            height: 44px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid #e2e8f0;
+        }
+        .link-view-prod {
+            color: #0f172a;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .link-view-prod:hover {
+            color: #FF5200;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -176,13 +344,12 @@
     <div id="screen-auth">
         <div class="login-card" style="max-width: 440px;">
             
-            <!-- Tab chuyển đổi -->
             <div class="auth-tabs">
                 <button type="button" class="auth-tab-btn active" id="tab-login-btn" onclick="toggleAuthTab('login')">Đăng Nhập</button>
                 <button type="button" class="auth-tab-btn" id="tab-register-btn" onclick="toggleAuthTab('register')">Đăng Ký</button>
             </div>
 
-            <!-- FORM 1: ĐĂNG NHẬP (KHÔNG RÀNG BUỘC) -->
+            <!-- FORM 1: ĐĂNG NHẬP -->
             <div id="form-login">
                 <h2 style="color: #273c75; margin-bottom: 5px; text-align: center; font-size: 22px;">Đăng Nhập Hệ Thống</h2>
                 <p class="login-sub">Chào mừng bạn đến với Shoe's Store</p>
@@ -202,7 +369,7 @@
                 </div>
             </div>
 
-            <!-- FORM 2: ĐĂNG KÝ (BẤM ĐĂNG KÝ TỰ ĐỘNG CHUYỂN SANG ĐĂNG NHẬP) -->
+            <!-- FORM 2: ĐĂNG KÝ -->
             <div id="form-register" style="display: none;">
                 <h2 style="color: #111; margin-bottom: 15px; font-size: 22px;">Đăng ký tài khoản</h2>
                 
@@ -245,7 +412,6 @@
                     <input type="password" placeholder="Nhập mật khẩu của bạn">
                 </div>
 
-                <!-- Bấm Đăng ký tự động chuyển về tab Đăng nhập -->
                 <button type="button" class="btn-register-black w-100" onclick="toggleAuthTab('login')">Đăng ký</button>
 
                 <div class="auth-switch-link">
@@ -263,7 +429,6 @@
     <!-- ==================== PHẦN 2: GIAO DIỆN CỬA HÀNG CHÍNH ==================== -->
     <div id="screen-store" style="display: none;">
 
-        <!-- Header cố định (Đã bỏ chữ Chào, tên) -->
         <header>
             <div class="header-container">
                 <h1 class="logo" onclick="switchView('shop')">Shoe's Store</h1>
@@ -277,9 +442,32 @@
                 </nav>
 
                 <div class="user-actions">
-                    <button class="btn-action btn-cart-highlight" onclick="switchView('cart')">Giỏ hàng (<span id="cart-badge">2</span>)</button>
-                    <button class="btn-action" onclick="switchView('history')">Lịch sử đơn (2)</button>
-                    <button class="btn-action btn-logout" onclick="exitToLoginScreen()">Đăng xuất</button>
+                    <button type="button" class="btn-action btn-cart-highlight" onclick="switchView('cart')">Giỏ hàng (<span id="cart-badge">2</span>)</button>
+                    <button type="button" class="btn-action" onclick="switchView('history')">Lịch sử đơn (2)</button>
+                    
+                    <div class="profile-dropdown-wrapper">
+                        <button type="button" class="btn-profile-trigger" onclick="toggleProfileCard(event)">
+                            <span class="profile-mini-avatar">A</span>
+                            <span>Tài khoản ▾</span>
+                        </button>
+
+                        <div id="profile-card-dropdown" class="profile-card-menu" onclick="event.stopPropagation()">
+                            <div class="profile-card-top">
+                                <div class="profile-big-avatar">A</div>
+                                <h4>Nguyễn Văn A</h4>
+                                <p>nguyenvana@gmail.com</p>
+                                <button type="button" class="btn-profile-edit-pill" onclick="openAccountSubView('info')">Thông tin cá nhân</button>
+                            </div>
+                            <ul class="profile-menu-list">
+                                <li onclick="openAccountSubView('info')">👤 Thông tin cá nhân</li>
+                                <li onclick="openAccountSubView('orders')">📦 Đơn hàng đã đặt</li>
+                                <li onclick="openAccountSubView('address')">📍 Đổi địa chỉ giao hàng</li>
+                                <li onclick="openAccountSubView('password')">🔒 Đổi mật khẩu</li>
+                                <div class="profile-menu-divider"></div>
+                                <li onclick="exitToLoginScreen()" style="color: #ef4444; font-weight: 600;">↪ Đăng xuất</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -289,11 +477,10 @@
             <!-- MÀN HÌNH 1: DANH SÁCH SẢN PHẨM -->
             <main id="view-shop">
                 
-                <!-- Bộ lọc tìm kiếm -->
                 <section class="content-box">
                     <div class="search-basic">
-                        <input type="text" id="basic-search" placeholder="Nhập tên giày thể thao hoặc sandal cần tìm...">
-                        <button class="btn-primary" onclick="fakeSearchAction()">Tìm kiếm</button>
+                        <input type="text" id="basic-search" placeholder="Nhập tên giày thể thao hoặc sandal cần tìm..." onkeydown="if(event.key==='Enter') fakeSearchAction()">
+                        <button type="button" class="btn-primary" onclick="fakeSearchAction()">Tìm kiếm</button>
                     </div>
 
                     <div class="search-advanced">
@@ -320,16 +507,14 @@
                                 <option value="3">Trên 1.500.000đ</option>
                             </select>
 
-                            <button class="btn-filter" onclick="fakeSearchAction()">Lọc ngay</button>
-                            <button class="btn-reset" onclick="resetSearchUI()">Đặt lại</button>
+                            <button type="button" class="btn-filter" onclick="fakeSearchAction()">Lọc ngay</button>
+                            <button type="button" class="btn-reset" onclick="resetSearchUI()">Đặt lại</button>
                         </div>
                     </div>
                 </section>
 
-                <!-- Lưới sản phẩm -->
-                <section class="content-box">
+                <section class="content-box" id="shop-products-container">
                     
-                    <!-- Nhóm 1: Giày Thể Thao -->
                     <div id="group-sneaker">
                         <h2 class="section-title">Giày Thể Thao</h2>
                         <div class="product-grid">
@@ -340,8 +525,8 @@
                                     <h3>Giày Thể Thao Nam Biti's Nâu Phối Đen</h3>
                                     <div class="product-price">750.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -352,8 +537,8 @@
                                     <h3>Giày Adidas Samba OG Mercedes Đen</h3>
                                     <div class="product-price">2.800.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -364,8 +549,8 @@
                                     <h3>Giày Đá Bóng F50 Turf Xanh Lá</h3>
                                     <div class="product-price">1.950.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -376,8 +561,8 @@
                                     <h3>Giày Chạy Bộ Tensaur Trắng Quai Dán</h3>
                                     <div class="product-price">920.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -388,8 +573,8 @@
                                     <h3>Giày Đá Bóng Cỏ Thật Predator Elite Đỏ</h3>
                                     <div class="product-price">3.200.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -400,8 +585,8 @@
                                     <h3>Giày Adidas Handball Spezial Đen 3 Sọc Màu</h3>
                                     <div class="product-price">2.450.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -412,8 +597,8 @@
                                     <h3>Giày Adidas Samba Liverpool Trắng Sọc Đỏ</h3>
                                     <div class="product-price">2.900.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -424,8 +609,8 @@
                                     <h3>Giày Sneaker Samba Trắng Sọc Đen Cổ Điển</h3>
                                     <div class="product-price">2.650.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -436,8 +621,8 @@
                                     <h3>Giày Thể Thao Streetwear Trắng Tia Sét Đỏ</h3>
                                     <div class="product-price">880.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -445,7 +630,6 @@
                         </div>
                     </div>
 
-                    <!-- Nhóm 2: Sandal -->
                     <div id="group-sandal">
                         <h2 class="section-title">Sandal</h2>
                         <div class="product-grid">
@@ -456,8 +640,8 @@
                                     <h3>Sandal Shondo Dây Mảnh Xám Ghi</h3>
                                     <div class="product-price">290.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -468,8 +652,8 @@
                                     <h3>Sandal Thể Thao Phối Màu Kem Đen</h3>
                                     <div class="product-price">340.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -480,8 +664,8 @@
                                     <h3>Sandal Shondo Quai Chéo Xám Tro</h3>
                                     <div class="product-price">320.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -492,20 +676,20 @@
                                     <h3>Sandal Shondo Lite Xanh Phối Trắng</h3>
                                     <div class="product-price">310.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="product-card">
+                            <div class="product-card" id="last-product-card">
                                 <img src="images/sandal-5.jpg" alt="Sandal Shondo Đen Toàn Bộ">
                                 <div class="product-body">
                                     <h3>Sandal Quai Dù Bền Chắc Đen Toàn Bộ</h3>
                                     <div class="product-price">350.000đ</div>
                                     <div class="product-card-actions">
-                                        <button onclick="switchView('detail')">Chi tiết</button>
-                                        <button class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
+                                        <button type="button" onclick="switchView('detail')">Chi tiết</button>
+                                        <button type="button" class="btn-primary" onclick="showAddCartPopup()">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </div>
@@ -513,8 +697,7 @@
                         </div>
                     </div>
 
-                    <!-- Phân trang Dropdown + Mũi tên -->
-                    <div class="custom-pagination">
+                    <div class="custom-pagination" id="shop-bottom-pagination">
                         <span>Trang</span>
                         <select id="page-dropdown" class="page-select-box" onchange="handleSelectPage(this.value)">
                             <option value="1">1</option>
@@ -528,18 +711,18 @@
                         </select>
                         <span>trong 8</span>
                         
-                        <button id="btn-prev" class="page-arrow-btn disabled" onclick="changePageStep(-1)">&larr;</button>
-                        <button id="btn-next" class="page-arrow-btn" onclick="changePageStep(1)">&rarr;</button>
+                        <button type="button" id="btn-prev" class="page-arrow-btn disabled" onclick="changePageStep(-1)">&larr;</button>
+                        <button type="button" id="btn-next" class="page-arrow-btn" onclick="changePageStep(1)">&rarr;</button>
                     </div>
 
                 </section>
             </main>
 
 
-            <!-- MÀN HÌNH 2: CHI TIẾT SẢN PHẨM (MẶC ĐỊNH SẢN PHẨM ĐẦU TIÊN) -->
+            <!-- MÀN HÌNH 2: CHI TIẾT SẢN PHẨM -->
             <main id="view-detail" style="display: none;">
                 <div class="content-box">
-                    <button onclick="switchView('shop')" style="background: #f1f2f6; border: 1px solid #dcdde1; padding: 8px 16px; border-radius: 6px; font-weight: 500; margin-bottom: 20px;">← Quay lại danh sách sản phẩm</button>
+                    <button type="button" onclick="switchView('shop')" style="background: #f1f2f6; border: 1px solid #dcdde1; padding: 8px 16px; border-radius: 6px; font-weight: 500; margin-bottom: 20px;">← Quay lại danh sách sản phẩm</button>
 
                     <div class="detail-grid">
                         <div class="detail-img-box">
@@ -558,7 +741,7 @@
                                 <input type="number" value="1" min="1" style="width: 65px; padding: 6px; border: 1px solid #ced6e0; border-radius: 6px; text-align: center;">
                             </div>
 
-                            <button class="btn-primary" style="padding: 12px 28px; font-size: 15px; font-weight: bold;" onclick="showAddCartPopup()">Thêm vào giỏ hàng</button>
+                            <button type="button" class="btn-primary" style="padding: 12px 28px; font-size: 15px; font-weight: bold;" onclick="showAddCartPopup()">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -570,7 +753,7 @@
                 <div class="content-box">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <h2>Giỏ hàng của bạn (2 sản phẩm)</h2>
-                        <button onclick="switchView('shop')" style="background: #FF5200; color: #fff; border: none; font-weight: bold;">← Tiếp tục mua sắm</button>
+                        <button type="button" onclick="switchView('shop')" style="background: #FF5200; color: #fff; border: none; font-weight: bold;">← Tiếp tục mua sắm</button>
                     </div>
 
                     <div class="cart-table-item">
@@ -634,53 +817,231 @@
                             </select>
                         </div>
 
-                        <button class="btn-primary w-100" style="padding: 12px; font-size: 16px; margin-top: 10px;" onclick="switchView('history')">Xác nhận đặt hàng</button>
+                        <button type="button" class="btn-primary w-100" style="padding: 12px; font-size: 16px; margin-top: 10px;" onclick="switchView('history')">Xác nhận đặt hàng</button>
                     </div>
                 </div>
             </main>
 
 
-            <!-- MÀN HÌNH 4: LỊCH SỬ ĐƠN HÀNG -->
+            <!-- MÀN HÌNH 4: LỊCH SỬ ĐƠN HÀNG (CÓ TÌNH TRẠNG & XEM CHI TIẾT SẢN PHẨM GIỐNG ADMIN) -->
             <main id="view-history" style="display: none;">
                 <div class="content-box">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <h2>Lịch sử đơn hàng đã đặt</h2>
-                        <button onclick="switchView('shop')" style="background: #FF5200; color: #fff; border: none; font-weight: bold;">← Tiếp tục mua sắm</button>
+                        <button type="button" onclick="switchView('shop')" style="background: #FF5200; color: #fff; border: none; font-weight: bold;">← Tiếp tục mua sắm</button>
                     </div>
 
+                    <!-- Đơn hàng 1 -->
                     <div class="order-card">
-                        <div class="order-header">
-                            <span>Mã đơn: DH882910</span>
+                        <div class="order-header" style="align-items: center;">
+                            <div>
+                                <span>Mã đơn: DH882910</span>
+                                <span class="order-status-badge status-success">Đã giao thành công</span>
+                            </div>
                             <span>Ngày đặt: 15/10/2026</span>
                         </div>
                         <p><strong>Người nhận:</strong> Nguyễn Văn A - 0966359744</p>
                         <p><strong>Địa chỉ giao:</strong> Số 12 An Dương Vương, Q.5</p>
                         <p><strong>Hình thức thanh toán:</strong> Tiền mặt khi nhận hàng (COD)</p>
-                        <div style="margin: 10px 0;">
-                            <strong>Sản phẩm đã mua:</strong>
-                            <ul style="padding-left: 20px; margin-top: 5px;">
-                                <li>Giày Đá Bóng Predator Elite Đỏ (x1) - 3.200.000đ</li>
-                            </ul>
-                        </div>
+                        
+                        <table class="history-prod-table">
+                            <thead>
+                                <tr>
+                                    <th>SẢN PHẨM</th>
+                                    <th>PHÂN LOẠI</th>
+                                    <th>ĐƠN GIÁ</th>
+                                    <th>SỐ LƯỢNG</th>
+                                    <th>THÀNH TIỀN</th>
+                                    <th>CHI TIẾT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="history-prod-cell">
+                                            <img src="images/sneaker-5.jpg" alt="Giày Predator">
+                                            <strong>Giày Đá Bóng Cỏ Thật Predator Elite Đỏ</strong>
+                                        </div>
+                                    </td>
+                                    <td>Giày thể thao</td>
+                                    <td>3.200.000đ</td>
+                                    <td>1</td>
+                                    <td><strong>3.200.000đ</strong></td>
+                                    <td><a class="link-view-prod" onclick="switchView('history-prod-detail')">Xem chi tiết</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <p style="text-align: right; color: #e84118; font-weight: bold; font-size: 16px;">Tổng tiền: 3.200.000đ</p>
                     </div>
 
+                    <!-- Đơn hàng 2 -->
                     <div class="order-card">
-                        <div class="order-header">
-                            <span>Mã đơn: DH661203</span>
+                        <div class="order-header" style="align-items: center;">
+                            <div>
+                                <span>Mã đơn: DH661203</span>
+                                <span class="order-status-badge status-pending">Chưa xác nhận</span>
+                            </div>
                             <span>Ngày đặt: 20/10/2026</span>
                         </div>
                         <p><strong>Người nhận:</strong> Nguyễn Văn A - 0966359744</p>
                         <p><strong>Địa chỉ giao:</strong> Số 12 An Dương Vương, Q.5</p>
                         <p><strong>Hình thức thanh toán:</strong> Thanh toán trực tuyến</p>
-                        <div style="margin: 10px 0;">
-                            <strong>Sản phẩm đã mua:</strong>
-                            <ul style="padding-left: 20px; margin-top: 5px;">
-                                <li>Sandal Shondo Dây Mảnh Xám Ghi (x1) - 290.000đ</li>
-                            </ul>
-                        </div>
+                        
+                        <table class="history-prod-table">
+                            <thead>
+                                <tr>
+                                    <th>SẢN PHẨM</th>
+                                    <th>PHÂN LOẠI</th>
+                                    <th>ĐƠN GIÁ</th>
+                                    <th>SỐ LƯỢNG</th>
+                                    <th>THÀNH TIỀN</th>
+                                    <th>CHI TIẾT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="history-prod-cell">
+                                            <img src="images/sandal-1.jpg" alt="Sandal Shondo">
+                                            <strong>Sandal Shondo Dây Mảnh Xám Ghi</strong>
+                                        </div>
+                                    </td>
+                                    <td>Sandal</td>
+                                    <td>290.000đ</td>
+                                    <td>1</td>
+                                    <td><strong>290.000đ</strong></td>
+                                    <td><a class="link-view-prod" onclick="switchView('history-prod-detail')">Xem chi tiết</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <p style="text-align: right; color: #e84118; font-weight: bold; font-size: 16px;">Tổng tiền: 290.000đ</p>
                     </div>
+                </div>
+            </main>
+
+
+            <!-- MÀN HÌNH 4B: CHI TIẾT SẢN PHẨM TRONG LỊCH SỬ ĐƠN (GIỐNG HỆT BÊN ADMIN) -->
+            <main id="view-history-prod-detail" style="display: none;">
+                <div class="content-box">
+                    <button type="button" onclick="switchView('history')" style="background: #f1f2f6; border: 1px solid #dcdde1; padding: 8px 16px; border-radius: 6px; font-weight: 500; margin-bottom: 20px;">← Quay lại lịch sử đơn hàng</button>
+
+                    <div class="detail-grid">
+                        <div class="detail-img-box">
+                            <img src="images/sneaker-1.jpg" alt="Giày Thể Thao Nam Biti's Nâu Phối Đen">
+                        </div>
+
+                        <div class="detail-info-box">
+                            <h2>Giày Thể Thao Nam Biti's Nâu Phối Đen</h2>
+                            <div class="detail-info-price">750.000đ</div>
+                            <p class="detail-info-desc">
+                                Mẫu giày chính hãng thiết kế phong cách thể thao năng động, chất liệu êm ái thoáng khí, form chuẩn ôm chân và đế bám chống trơn trượt tối đa. Phù hợp cho vận động hàng ngày, đi chơi và tập luyện thể thao.
+                            </p>
+
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <label style="font-weight: bold; font-size: 14px;">Số lượng:</label>
+                                <input type="text" value="1" readonly disabled style="width: 55px; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; text-align: center; background: #f1f5f9; color: #334155; font-weight: bold; cursor: not-allowed;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+            <!-- MÀN HÌNH 5: THÔNG TIN CÁ NHÂN -->
+            <main id="view-account-info" style="display: none;">
+                <div class="content-box" id="box-account-info" style="max-width: 650px; margin: 0 auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2>Thông tin cá nhân</h2>
+                        <button type="button" onclick="switchView('shop')" style="background: #FF5200; color: #fff; border: none; font-weight: bold;">← Quay lại cửa hàng</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Họ và tên:</label>
+                        <input type="text" value="Nguyễn Văn A">
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại:</label>
+                        <input type="text" value="0966359744">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="text" value="nguyenvana@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày sinh:</label>
+                        <input type="text" value="15/08/2003">
+                    </div>
+                    <div class="form-group">
+                        <label>Giới tính:</label>
+                        <div class="gender-options">
+                            <label><input type="radio" name="acc_gender" checked> Nam</label>
+                            <label><input type="radio" name="acc_gender"> Nữ</label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-primary w-100" style="padding: 12px; font-size: 15px; font-weight: bold; margin-top: 10px;" onclick="reloadAccountBox('box-account-info')">Lưu thông tin cá nhân</button>
+                </div>
+            </main>
+
+
+            <!-- MÀN HÌNH 6: ĐỔI ĐỊA CHỈ GIAO HÀNG -->
+            <main id="view-account-address" style="display: none;">
+                <div class="content-box" id="box-account-address" style="max-width: 650px; margin: 0 auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2>Đổi địa chỉ giao hàng</h2>
+                        <button type="button" onclick="switchView('shop')" style="background: #FF5200; color: #fff; border: none; font-weight: bold;">← Quay lại cửa hàng</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ hiện tại đang lưu:</label>
+                        <input type="text" value="Số 12 An Dương Vương, Phường 3, Quận 5, TP.HCM" readonly style="background: #f1f2f6; color: #555;">
+                    </div>
+                    <div class="form-group">
+                        <label>Tỉnh / Thành phố mới:</label>
+                        <select>
+                            <option>TP. Hồ Chí Minh</option>
+                            <option>Hà Nội</option>
+                            <option>Đà Nẵng</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quận / Huyện:</label>
+                        <input type="text" placeholder="Nhập Quận / Huyện mới..." value="Quận 5">
+                    </div>
+                    <div class="form-group">
+                        <label>Số nhà, tên đường cụ thể:</label>
+                        <input type="text" placeholder="Nhập số nhà, tên đường mới..." value="Số 12 An Dương Vương">
+                    </div>
+
+                    <button type="button" class="btn-primary w-100" style="padding: 12px; font-size: 15px; font-weight: bold; margin-top: 10px;" onclick="reloadAccountBox('box-account-address')">Cập nhật địa chỉ</button>
+                </div>
+            </main>
+
+
+            <!-- MÀN HÌNH 7: ĐỔI MẬT KHẨU -->
+            <main id="view-account-password" style="display: none;">
+                <div class="content-box" id="box-account-password" style="max-width: 550px; margin: 0 auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2>Đổi mật khẩu tài khoản</h2>
+                        <button type="button" onclick="switchView('shop')" style="background: #FF5200; color: #fff; border: none; font-weight: bold;">← Quay lại cửa hàng</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mật khẩu hiện tại:</label>
+                        <input type="password" placeholder="Nhập mật khẩu cũ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu mới:</label>
+                        <input type="password" placeholder="Nhập mật khẩu mới...">
+                    </div>
+                    <div class="form-group">
+                        <label>Xác nhận mật khẩu mới:</label>
+                        <input type="password" placeholder="Nhập lại mật khẩu mới...">
+                    </div>
+
+                    <button type="button" class="btn-primary w-100" style="padding: 12px; font-size: 15px; font-weight: bold; margin-top: 10px;" onclick="reloadAccountBox('box-account-password')">Xác nhận đổi mật khẩu</button>
                 </div>
             </main>
 
@@ -696,7 +1057,6 @@
                 <span>Đã thêm vào giỏ hàng!</span>
             </div>
 
-            <!-- Mặc định hiển thị sản phẩm đầu tiên -->
             <div class="popup-item-card">
                 <img src="images/sneaker-1.jpg" alt="Giày Thể Thao Nam Biti's Nâu Phối Đen">
                 <div>
@@ -715,12 +1075,11 @@
 
 
     <script>
-        // 1. Chuyển Tab Đăng nhập / Đăng ký (Bấm Đăng ký tự động chuyển về tab Đăng nhập)
         function toggleAuthTab(tab) {
-            const formLogin = document.getElementById('form-login');
-            const formRegister = document.getElementById('form-register');
-            const btnLoginTab = document.getElementById('tab-login-btn');
-            const btnRegTab = document.getElementById('tab-register-btn');
+            var formLogin = document.getElementById('form-login');
+            var formRegister = document.getElementById('form-register');
+            var btnLoginTab = document.getElementById('tab-login-btn');
+            var btnRegTab = document.getElementById('tab-register-btn');
 
             if (tab === 'register') {
                 formLogin.style.display = 'none';
@@ -735,7 +1094,6 @@
             }
         }
 
-        // 2. Chuyển giữa Màn hình Đăng nhập và Giao diện Cửa hàng chính
         function enterStoreApp() {
             document.getElementById('screen-auth').style.display = 'none';
             document.getElementById('screen-store').style.display = 'block';
@@ -743,21 +1101,60 @@
         }
 
         function exitToLoginScreen() {
+            closeProfileCard();
             document.getElementById('screen-store').style.display = 'none';
             document.getElementById('screen-auth').style.display = 'flex';
             toggleAuthTab('login');
         }
 
-        // 3. Chuyển các màn hình bên trong Cửa hàng (Shop, Detail, Cart, History)
         function switchView(viewName) {
             document.getElementById('view-shop').style.display = (viewName === 'shop') ? 'block' : 'none';
             document.getElementById('view-detail').style.display = (viewName === 'detail') ? 'block' : 'none';
             document.getElementById('view-cart').style.display = (viewName === 'cart') ? 'block' : 'none';
             document.getElementById('view-history').style.display = (viewName === 'history') ? 'block' : 'none';
+            document.getElementById('view-history-prod-detail').style.display = (viewName === 'history-prod-detail') ? 'block' : 'none';
+            document.getElementById('view-account-info').style.display = (viewName === 'account-info') ? 'block' : 'none';
+            document.getElementById('view-account-address').style.display = (viewName === 'account-address') ? 'block' : 'none';
+            document.getElementById('view-account-password').style.display = (viewName === 'account-password') ? 'block' : 'none';
+            
+            closeProfileCard();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 4. Popup Thêm vào giỏ hàng
+        function toggleProfileCard(e) {
+            e.stopPropagation();
+            var menu = document.getElementById('profile-card-dropdown');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function closeProfileCard() {
+            var menu = document.getElementById('profile-card-dropdown');
+            if (menu) menu.style.display = 'none';
+        }
+
+        window.addEventListener('click', function() {
+            closeProfileCard();
+        });
+
+        function openAccountSubView(subType) {
+            closeProfileCard();
+            if (subType === 'info') switchView('account-info');
+            else if (subType === 'orders') switchView('history');
+            else if (subType === 'address') switchView('account-address');
+            else if (subType === 'password') switchView('account-password');
+        }
+
+        function reloadAccountBox(boxId) {
+            var box = document.getElementById(boxId);
+            if (box) {
+                box.style.opacity = '0.35';
+                box.style.transition = 'opacity 0.15s ease';
+                setTimeout(function() {
+                    box.style.opacity = '1';
+                }, 180);
+            }
+        }
+
         function showAddCartPopup() {
             document.getElementById('popup-added-cart').style.display = 'flex';
         }
@@ -771,10 +1168,12 @@
             switchView('cart');
         }
 
-        // 5. Chuyển danh mục & Tìm kiếm & Phân trang
         function switchCategory(cat) {
             switchView('shop');
-            document.querySelectorAll('.nav-links li').forEach(li => li.classList.remove('active'));
+            var items = document.querySelectorAll('.nav-links li');
+            for (var i = 0; i < items.length; i++) {
+                items[i].classList.remove('active');
+            }
             document.getElementById('nav-' + cat).classList.add('active');
 
             if (cat === 'all') {
@@ -790,8 +1189,22 @@
         }
 
         function fakeSearchAction() {
-            switchView('shop');
-            document.getElementById('group-sneaker').scrollIntoView({ behavior: 'smooth' });
+            switchCategory('all');
+            var box = document.getElementById('shop-products-container');
+            if (box) {
+                box.style.opacity = '0.35';
+                box.style.transition = 'opacity 0.18s ease';
+                setTimeout(function() {
+                    box.style.opacity = '1';
+                }, 180);
+            }
+
+            setTimeout(function() {
+                var bottomTarget = document.getElementById('shop-bottom-pagination');
+                if (bottomTarget) {
+                    bottomTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }
+            }, 80);
         }
 
         function resetSearchUI() {
@@ -802,13 +1215,13 @@
             switchCategory('all');
         }
 
-        let currentPage = 1;
-        const totalPages = 8;
+        var currentPage = 1;
+        var totalPages = 8;
 
         function updatePaginationUI() {
             document.getElementById('page-dropdown').value = currentPage;
-            const btnPrev = document.getElementById('btn-prev');
-            const btnNext = document.getElementById('btn-next');
+            var btnPrev = document.getElementById('btn-prev');
+            var btnNext = document.getElementById('btn-next');
 
             if (currentPage === 1) {
                 btnPrev.classList.add('disabled');
@@ -830,7 +1243,7 @@
         }
 
         function changePageStep(delta) {
-            const targetPage = currentPage + delta;
+            var targetPage = currentPage + delta;
             if (targetPage >= 1 && targetPage <= totalPages) {
                 currentPage = targetPage;
                 updatePaginationUI();
